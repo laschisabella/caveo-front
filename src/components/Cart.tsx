@@ -3,16 +3,20 @@
 import { useCartStore } from "@/domain/state/cartStore";
 import Image from "next/image";
 
-const CartPage = () => {
+export default function Cart() {
   const { items, removeFromCart, clearCart } = useCartStore();
 
   if (items.length === 0) {
-    return <p>O carrinho está vazio.</p>;
+    return (
+      <div className="bg-orange-400 p-10">
+        <p>O carrinho está vazio.</p>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>Seu Carrinho</h1>
+    <div className="bg-orange-400 p-10">
+      <h1 className="text-xl">Cart</h1>
       <ul>
         {items.map((item) => (
           <li key={item.id} style={{ marginBottom: "16px" }}>
@@ -32,6 +36,4 @@ const CartPage = () => {
       </button>
     </div>
   );
-};
-
-export default CartPage;
+}

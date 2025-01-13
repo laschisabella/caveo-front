@@ -1,17 +1,8 @@
-import { ProductI } from "@/types/Product";
+import { CartI } from "@/types/Cart";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type CartItem = ProductI & { quantity: number };
-
-interface CartState {
-  items: CartItem[];
-  addToCart: (product: ProductI) => void;
-  removeFromCart: (productId: number) => void;
-  clearCart: () => void;
-}
-
-export const useCartStore = create<CartState>()(
+export const useCartStore = create<CartI>()(
   persist(
     (set) => ({
       items: [],
@@ -38,7 +29,7 @@ export const useCartStore = create<CartState>()(
       clearCart: () => set({ items: [] }),
     }),
     {
-      name: "cart-storage", // Nome da chave no localStorage
+      name: "cart-storage",
     }
   )
 );
