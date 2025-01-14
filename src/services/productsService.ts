@@ -18,7 +18,7 @@ export const fetchPaginatedProducts = async (
 
     return simulatedProducts.slice(start, end);
   } catch (error) {
-    console.error("Erro ao buscar produtos:", error);
+    console.error("Error fetching products:", error);
     return [];
   }
 };
