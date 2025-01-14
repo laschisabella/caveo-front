@@ -111,8 +111,7 @@ export default function ProductsPage() {
   );
 
   if (isLoading) return renderSkeleton();
-  if (isError)
-    return <p className="p-10 bg-white">Erro ao carregar produtos!</p>;
+  if (isError) return <p className="p-10 bg-white">Error loading products!</p>;
 
   return (
     <div className="p-10 bg-white">
@@ -121,7 +120,7 @@ export default function ProductsPage() {
         ref={observerRef}
         style={{ height: "20px", background: "transparent" }}
       />
-      {isFetchingNextPage && <p>Carregando mais produtos...</p>}
+      {isFetchingNextPage && <p>Loading products...</p>}
     </div>
   );
 }
